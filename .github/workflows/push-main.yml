@@ -43,8 +43,15 @@ jobs:
         if: ${{ failure() }}
         env:
           FORMAT_VAR: ${{ format('Github {0} {1} {2}', 'actions', 'is', 'awesome!') }} 
-        run: 
+        run: |
           echo "display when failure"
+          echo ${{ env.FORMAT_VAR }}
+      - name: test always status check
+        if: ${{ contains(env.aString, 'this') && always() }}
+        run: sleep 60
+      - name: test cancel status
+        if: ${{ cancelled() }}
+        run: echo "CANCELLED"
 
   # This workflow contains a single job called "build"
   test_vars:
