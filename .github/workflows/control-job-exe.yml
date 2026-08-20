@@ -18,14 +18,6 @@ jobs:
     steps:
       - run: sleep 5
 
-  deploy-job:
-    name: deploy job
-    runs-on: ubuntu-latest
-    needs: build-job
-    steps:
-      - name: test build output
-        run: echo ${{ needs.build-job.outputs.build-output }}
-
   build-job:
     outputs:
       build-output: ${{ steps.buildStep.outputs.buildOut }}
@@ -38,4 +30,12 @@ jobs:
         id: buildStep
         run: |
           bunver=$(bun --version)
-          echo "buildOut=$bunver" >> "GITHUB_OUTPUT"
+          echo "buildOut=$bunver" >> $GITHUB_OUTPUT
+
+  deploy-job:
+    name: deploy job
+    runs-on: ubuntu-latest
+    needs: build-job
+    steps:
+      - name: test build output
+        run: echo ${{ needs.build-job.outputs.build-output }}
