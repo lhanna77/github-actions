@@ -12,10 +12,10 @@ jobs:
         python-version: [3.11,3.12,3.13]
         include:
           - runner: macos-latest
-            pythom-version: 3.12
+            python-version: 3.12
         exclude:
           - runner: windows-latest
-            pythom-version: 3.13
+            python-version: 3.13
     runs-on: ${{ matrix.runner }}
     steps:
        - run: echo this job will run in python version ${{ matrix.python-version }}
