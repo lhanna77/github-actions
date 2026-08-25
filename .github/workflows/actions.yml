@@ -21,4 +21,4 @@ jobs:
           who-to-greet: 'Lee'
       - name: time
         run: |
-          echo "'greeting time: ' ${{ steps.hello-world-action.outputs.time }}"
+          echo "greeting time: ${{ steps.hello-world-action.outputs.time }}"
