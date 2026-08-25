@@ -19,6 +19,9 @@ jobs:
         uses: actions/hello-world-docker-action@main
         with:
           who-to-greet: 'Lee'
+      - name: Debug Action Outputs
+        run: |
+          echo "All step outputs: ${{ toJson(steps.hello-world-action.outputs) }}"
       - name: time
         run: |
           echo "greeting time: ${{ steps.hello-world-action.outputs.time }}"
