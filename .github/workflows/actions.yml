@@ -11,7 +11,7 @@ jobs:
       - name: list files
         run: ls
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
       - name: list files after CO
         run: ls
       - name: hello-world-action
@@ -20,4 +20,5 @@ jobs:
         with:
           who-to-greet: 'Lee'
       - name: time
-        run echo "'greeting time: ' ${{ steps.hello-world-action.outputs.time }}"
+        run: |
+          echo "'greeting time: ' ${{ steps.hello-world-action.outputs.time }}"
