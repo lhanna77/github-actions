@@ -1,7 +1,8 @@
 name: control-job-exe
 
 on:
-  push:
+  #push:
+  workflow_dispatch: 
   
 jobs:
   concurrency-job1:
