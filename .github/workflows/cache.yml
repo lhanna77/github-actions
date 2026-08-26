@@ -1,6 +1,23 @@
 name: cache
 
-on: workflow_dispatch
-
-
-jobs: test-cache: name: job to test the cache run-on: ubuntu-latest Steps: - uses: actions/checkout04.1.1 - Uses: actions/cacheev3 id: generatecache with: path: ~/. Cache/pip key: Sff runner.05 37-pip-Sef hashFiles (" requirements. txt') If restore-keys: Sff runner. s 3-DID- - run: Pip install -r requirements. txt name: confirm cache If: steps generatecache. Outputs, cache-hit == 'true' run: echo cache entry found?
+on: 
+  workflow_dispatch
+  
+jobs: 
+  test-cache: 
+    name: job to test the cache 
+    run-on: ubuntu-latest 
+    Steps: 
+      - uses: actions/checkout@v6.1.0
+      - uses: actions/cache@v6.1.0
+        id: generateCache 
+        with: 
+          path: ~/. Cache/pip 
+          key: ${{ runner.os hashFiles }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os hashFiles }}-pip-
+      - run: |
+        pip install -r requirements.txt
+      - name: confirm cache 
+        If: steps generatecache. Outputs, cache-hit == 'true' 
+        run: echo cache entry found!
