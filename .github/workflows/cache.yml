@@ -1,23 +1,22 @@
 name: cache
 
 on: 
-  workflow_dispatch
-  
+  workflow_dispatch:
+
 jobs: 
   test-cache: 
     name: job to test the cache 
-    run-on: ubuntu-latest 
-    Steps: 
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v6.1.0
       - uses: actions/cache@v6.1.0
         id: generateCache 
         with: 
-          path: ~/. Cache/pip 
-          key: ${{ runner.os hashFiles }}-pip-${{ hashFiles('**/requirements.txt') }}
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
-            ${{ runner.os hashFiles }}-pip-
-      - run: |
-        pip install -r requirements.txt
+            ${{ runner.os }}-pip-
+      - run: pip install -r requirements.txt
       - name: confirm cache 
-        If: steps generatecache. Outputs, cache-hit == 'true' 
-        run: echo cache entry found!
+        if: steps.generateCache.outputs.cache-hit == 'true' 
+        run: echo "cache entry found!"
