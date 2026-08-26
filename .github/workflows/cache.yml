@@ -1,1 +1,6 @@
+name: cache
 
+on: workflow_dispatch
+
+
+jobs: test-cache: name: job to test the cache run-on: ubuntu-latest Steps: - uses: actions/checkout04.1.1 - Uses: actions/cacheev3 id: generatecache with: path: ~/. Cache/pip key: Sff runner.05 37-pip-Sef hashFiles (" requirements. txt') If restore-keys: Sff runner. s 3-DID- - run: Pip install -r requirements. txt name: confirm cache If: steps generatecache. Outputs, cache-hit == 'true' run: echo cache entry found?
