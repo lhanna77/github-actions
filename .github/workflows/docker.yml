@@ -1,7 +1,7 @@
 name: docker
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
 
 jobs:
   test-docker-action:
@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: chmod +x docker/entrypoint.sh
+
       - uses: ./docker
         id: dockerAction
         with:
           number1: 4
           number2: 2
-      - run: echo ${{ steps.dockerAction.outputs.result }}
-      - run: cat $GITHUB_WORKSPACE/containerOutputFile.txt
-      - run: cat ${{ github.workspace }}/containerOutputFile.txt
+
+      - run: echo "${{ steps.dockerAction.outputs.result }}"
+      - run: cat "$GITHUB_WORKSPACE/containerOutputFile.txt"
