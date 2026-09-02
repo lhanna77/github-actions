@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -1
 
 result=$(($1 + $2))
 
