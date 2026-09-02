@@ -1,7 +1,7 @@
 name: docker
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   test-docker-action:
@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.1.0
-      - run: chmod +x /entrypoint.sh
-      - uses: ./
+      - run: chmod +x docker/entrypoint.sh
+      - uses: ./docker
         id: dockerAction
         with:
           number1: 4
