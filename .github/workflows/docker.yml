@@ -8,7 +8,7 @@ jobs:
     name: job to test our docker action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.1.0
 
       - uses: ./docker
         id: dockerAction
