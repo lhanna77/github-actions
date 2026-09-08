@@ -5,5 +5,5 @@ test("multiplication property of zero", () => {
 })
 
 test("adding two values", () => {
-    expect(appOperations.add(7, 4)).toBe(0);
+    expect(appOperations.add(7, 4)).toBe(11);
 })
