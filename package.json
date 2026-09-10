@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/lhanna77/github-actions#readme",
   "devDependencies": {
-    "jest": "^30.5.1"
+    "jest": "^26.0.0"
   }
 }
