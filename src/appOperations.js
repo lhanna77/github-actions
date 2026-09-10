@@ -1,4 +1,4 @@
-samplesecret = "ghp_ldsgklibhlkxcbvlbgvfldbvlasdbgli"
+samplesecret = "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"
 
 function multiply(num1, num2) {
     return num1 * num2;
