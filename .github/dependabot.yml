@@ -5,6 +5,22 @@
 
 version: 2
 updates:
+
+  - package-ecosystem: "pip"
+    directory: "/" # Location of your requirements.txt or pyproject.toml
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      # Group minor/patch updates together to avoid PR fatigue
+      python-dependencies:
+        patterns:
+          - "*"
+    # Ignore major version updates for PySpark to avoid breaking changes in production
+    ignore:
+      - dependency-name: "pyspark"
+        update-types: ["version-update:semver-major"]
+
   # Enable version updates for npm
   - package-ecosystem: "npm"
     # Look for `package.json` and `lock` files in the `root` directory
