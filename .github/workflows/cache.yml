@@ -8,7 +8,7 @@ jobs:
     name: job to test the cache 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.1.0
+      - uses: actions/checkout@v7
       - uses: actions/cache@v6.1.0
         id: generateCache 
         with: 
