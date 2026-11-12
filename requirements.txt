@@ -2,4 +2,4 @@ grpcio==1.85.1
 lalsuite==8.0.0
 catboost==1.2.10
 torch==2.15.0
-ray==2.59.0
+ray==2.60.0
