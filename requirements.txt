@@ -1,4 +1,4 @@
-grpcio==1.85.1
+grpcio==1.85.3
 lalsuite==8.0.2
 catboost==1.2.10
 torch==2.15.0
